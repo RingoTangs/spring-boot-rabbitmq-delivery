@@ -49,6 +49,7 @@ rabbitmq:3-management
 
 - `order-entity`：封装了实体类，导入一些工具包。
 - `order-producer`：主要业务逻辑，Controller、Service、定时任务等，并且依赖 `order-entity`。
+- `order-consumer`：消费端，使用Redis避免消息的重复消费。
 
 ### 2.2. order-producer
 
@@ -84,6 +85,6 @@ git clone https://github.com/RingoTangs/spring-boot-rabbitmq-delivery.git
 
 # 配置application.yaml中的环境
 
-# 启动项目, 访问 /order接口，观察 MySQL 和 RabbitMQ消息记录即可！
+# 先启动生产端, 再启动消费端, 访问 /order接口，观察 MySQL 和 RabbitMQ消息记录即可！
 ```
 
