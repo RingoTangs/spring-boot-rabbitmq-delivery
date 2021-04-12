@@ -4,7 +4,7 @@ spring:
   application:
     name: spring-boot-rabbitmq-producer
   rabbitmq:
-    host: 39.97.3.60
+    host: 192.168.1.1
     username: Ringo
     password: 123
     virtual-host: /
@@ -20,7 +20,7 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://39.97.3.60/test_rabbitmq?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://192.168.1.1/test_rabbitmq?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: 333
     type: com.zaxxer.hikari.HikariDataSource
