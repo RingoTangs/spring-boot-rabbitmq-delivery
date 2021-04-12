@@ -11,6 +11,7 @@
     <modules>
         <module>order-producer</module>
         <module>order-entity</module>
+        <module>order-consumer</module>
     </modules>
 
     <parent>
