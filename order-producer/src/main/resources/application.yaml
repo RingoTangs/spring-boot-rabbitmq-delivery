@@ -1,0 +1,29 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: spring-boot-rabbitmq-producer
+  rabbitmq:
+    host: 
+    username: 
+    password: 
+    virtual-host: /
+    connection-timeout: 15000
+    publisher-returns: true #可以确保消息在未被队列接收时返回
+    publisher-confirm-type: simple #设置此属性配置可以确保消息成功发送到交换机
+    template:
+      mandatory: true #指定消息在没有被队列接收时是否强行退回还是直接丢弃
+      
+# 当mandatory标志位设置为true时，如果exchange根据自身类型和消息routingKey无法找到一个合适的queue存储消息，那么broker会调用basic.return方法将消息返还给生产者;
+# 当mandatory设置为false时，出现上述情况broker会直接将消息丢弃;
+# 通俗的讲，mandatory标志告诉broker代理服务器至少将消息route到一个队列中，否则就将消息return给发送者。
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.1/test_rabbitmq?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 8888
+    type: com.zaxxer.hikari.HikariDataSource
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

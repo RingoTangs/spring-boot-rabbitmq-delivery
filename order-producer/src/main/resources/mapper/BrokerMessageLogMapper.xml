@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ymy.boot.mapper.BrokerMessageLogMapper">
+
+    <select id="queryTimeoutMessages" resultType="com.ymy.boot.entity.BrokerMessageLog">
+        SELECT * FROM broker_message_log
+        WHERE `status` = 0
+        AND DATE_ADD(`next_retry`, INTERVAL 1 MINUTE) &lt;= NOW();
+    </select>
+
+    <update id="updateTryCountWhenReSend">
+        UPDATE `broker_message_log` SET `try_count` = `try_count` + 1, `next_retry` = NOW()
+        WHERE `message_id` = #{messageId};
+    </update>
+
+    <update id="changeBrokerMessageLogStatus">
+        UPDATE `broker_message_log` SET `status` = #{status} WHERE `message_id` = #{messageId};
+    </update>
+</mapper>
