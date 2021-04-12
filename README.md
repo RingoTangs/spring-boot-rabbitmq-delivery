@@ -35,9 +35,9 @@ rabbitmq:3-management
 
 ### 1.3. 开发环境
 
-- **JDK 1.8 **
-- **Maven 3.5 **
-- **IntelliJ IDEA ** (*注意：务必使用 IDEA 开发，同时保证安装 `lombok` 插件*)
+- **JDK 1.8**
+- **Maven 3.5**
+- **IntelliJ IDEA**  (*注意：务必使用 IDEA 开发，同时保证安装 `lombok` 插件*)
 
 
 
