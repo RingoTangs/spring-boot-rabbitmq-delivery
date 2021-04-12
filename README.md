@@ -33,7 +33,7 @@ rabbitmq:3-management
 
 
 
-## 1.3. Redis
+### 1.3. Redis
 
 `Redis`用来解决消息重复消费的问题，默认端口6379。
 
@@ -44,7 +44,7 @@ docker run -p 6397:6379 --name redis \
 
 
 
-### 1.3. 开发环境
+### 1.4. 开发环境
 
 - **JDK 1.8**
 - **Maven 3.5**
